@@ -89,7 +89,7 @@ function PacientePage() {
           </section>
 
           <section className="rounded-3xl bg-primary/10 p-6">
-            <h2 className="flex items-center gap-2 text-lg text-primary"><span aria-hidden>✦</span> Resumo por IA</h2>
+            <h2 className="flex items-center gap-2 text-lg text-primary"><span aria-hidden className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">IA</span> Resumo por IA</h2>
             <p className="mt-3 text-sm leading-relaxed">{gerarResumoIA(paciente, consultas)}</p>
             <p className="mt-3 text-xs text-muted-foreground">Apoio à decisão clínica. Deve ser validado pelo profissional responsável.</p>
           </section>

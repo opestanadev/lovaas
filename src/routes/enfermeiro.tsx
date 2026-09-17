@@ -60,7 +60,7 @@ function Home() {
       </div>
 
       <h2 className="mb-3 flex items-center gap-2 text-lg text-secondary">
-        <span aria-hidden>🧍</span> Pacientes cadastrados
+        <span aria-hidden className="flex h-6 w-6 items-center justify-center rounded-full bg-secondary text-xs text-secondary-foreground">P</span> Pacientes cadastrados
       </h2>
 
       <section className="rounded-3xl bg-surface p-5">

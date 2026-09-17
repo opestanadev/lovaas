@@ -57,16 +57,14 @@ function Login() {
       <div className="px-4 pt-4">
         <header className="mx-auto flex max-w-6xl items-center justify-between rounded-full bg-primary px-5 py-2.5">
           <div className="flex items-center gap-2">
-            <span aria-hidden className="text-lg">
-              💜
-            </span>
+            <span aria-hidden className="flex h-7 w-7 items-center justify-center rounded-full bg-primary-foreground/20 text-xs font-bold">L</span>
             <span className="font-display text-xl italic text-primary-foreground">Lovaas</span>
           </div>
           <span className="text-xs text-primary-foreground/85">Prefeitura de Crateús · Secretaria de Saúde</span>
         </header>
       </div>
 
-      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center gap-8 px-4 py-12 md:flex-row md:items-stretch">
+      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center gap-8 px-4 py-12 md:flex-row">
         <section className="flex-1 self-center">
           <h1 className="text-4xl text-primary">Cuidado organizado para quem precisa.</h1>
           <div className="mt-3 flex gap-3" aria-hidden>
