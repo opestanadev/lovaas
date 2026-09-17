@@ -10,7 +10,7 @@ export function Logo() {
         aria-hidden
         className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground/20 text-lg"
       >
-        💜
+        L
       </span>
       <span className="font-display text-xl italic tracking-tight text-primary-foreground">Lovaas</span>
     </div>
