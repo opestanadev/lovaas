@@ -29,13 +29,19 @@ function Home() {
   const [busca, setBusca] = useState("");
 
   const lista = useMemo(() => {
-    const q = busca.trim().toLowerCase();
+    const normalizar = (valor: string) =>
+      valor
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
+    const q = normalizar(busca.trim());
+    const qNumerico = busca.replace(/\D/g, "");
     return pacientes.filter(
       (p) =>
         !q ||
-        p.nome.toLowerCase().includes(q) ||
-        p.cpf.replace(/\D/g, "").includes(q.replace(/\D/g, "")) ||
-        p.prontuario.includes(q),
+        normalizar(p.nome).includes(q) ||
+        (qNumerico.length > 0 &&
+          (p.cpf.replace(/\D/g, "").includes(qNumerico) || p.prontuario.includes(qNumerico))),
     );
   }, [pacientes, busca]);
 
