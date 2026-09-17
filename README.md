@@ -1,9 +1,7 @@
 <div align="center">
 	<img src="/public/lovaas-logo.png" alt="Lovaas" width="350px">
 
-	<p>
-		Sistema de gestão do cuidado a pessoas com Transtorno do Espectro Autista (TEA) na rede pública de saúde.
-	</p>
+	Sistema de gestão do cuidado a pessoas com Transtorno do Espectro Autista (TEA) na rede pública de saúde.
 </div>
 
 ## Sobre o Projeto
