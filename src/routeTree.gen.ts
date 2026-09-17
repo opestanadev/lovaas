@@ -10,12 +10,21 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CadastroRouteImport } from './routes/cadastro'
 import { Route as ConfiguracoesRouteImport } from './routes/configuracoes'
 import { Route as EnfermeiroRouteImport } from './routes/enfermeiro'
+import { Route as ProfissionalRouteImport } from './routes/profissional'
+import { Route as ConsultaIdRouteImport } from './routes/consulta.$id'
+import { Route as PacienteIdRouteImport } from './routes/paciente.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CadastroRoute = CadastroRouteImport.update({
+  id: '/cadastro',
+  path: '/cadastro',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ConfiguracoesRoute = ConfiguracoesRouteImport.update({
@@ -28,35 +37,88 @@ const EnfermeiroRoute = EnfermeiroRouteImport.update({
   path: '/enfermeiro',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfissionalRoute = ProfissionalRouteImport.update({
+  id: '/profissional',
+  path: '/profissional',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConsultaIdRoute = ConsultaIdRouteImport.update({
+  id: '/consulta/$id',
+  path: '/consulta/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PacienteIdRoute = PacienteIdRouteImport.update({
+  id: '/paciente/$id',
+  path: '/paciente/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cadastro': typeof CadastroRoute
   '/configuracoes': typeof ConfiguracoesRoute
   '/enfermeiro': typeof EnfermeiroRoute
+  '/profissional': typeof ProfissionalRoute
+  '/consulta/$id': typeof ConsultaIdRoute
+  '/paciente/$id': typeof PacienteIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cadastro': typeof CadastroRoute
   '/configuracoes': typeof ConfiguracoesRoute
   '/enfermeiro': typeof EnfermeiroRoute
+  '/profissional': typeof ProfissionalRoute
+  '/consulta/$id': typeof ConsultaIdRoute
+  '/paciente/$id': typeof PacienteIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cadastro': typeof CadastroRoute
   '/configuracoes': typeof ConfiguracoesRoute
   '/enfermeiro': typeof EnfermeiroRoute
+  '/profissional': typeof ProfissionalRoute
+  '/consulta/$id': typeof ConsultaIdRoute
+  '/paciente/$id': typeof PacienteIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/configuracoes' | '/enfermeiro'
+  fullPaths:
+    | '/'
+    | '/cadastro'
+    | '/configuracoes'
+    | '/enfermeiro'
+    | '/profissional'
+    | '/consulta/$id'
+    | '/paciente/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/configuracoes' | '/enfermeiro'
-  id: '__root__' | '/' | '/configuracoes' | '/enfermeiro'
+  to:
+    | '/'
+    | '/cadastro'
+    | '/configuracoes'
+    | '/enfermeiro'
+    | '/profissional'
+    | '/consulta/$id'
+    | '/paciente/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/cadastro'
+    | '/configuracoes'
+    | '/enfermeiro'
+    | '/profissional'
+    | '/consulta/$id'
+    | '/paciente/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CadastroRoute: typeof CadastroRoute
   ConfiguracoesRoute: typeof ConfiguracoesRoute
   EnfermeiroRoute: typeof EnfermeiroRoute
+  ProfissionalRoute: typeof ProfissionalRoute
+  ConsultaIdRoute: typeof ConsultaIdRoute
+  PacienteIdRoute: typeof PacienteIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -66,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cadastro': {
+      id: '/cadastro'
+      path: '/cadastro'
+      fullPath: '/cadastro'
+      preLoaderRoute: typeof CadastroRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/configuracoes': {
@@ -82,13 +151,38 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnfermeiroRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/profissional': {
+      id: '/profissional'
+      path: '/profissional'
+      fullPath: '/profissional'
+      preLoaderRoute: typeof ProfissionalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/consulta/$id': {
+      id: '/consulta/$id'
+      path: '/consulta/$id'
+      fullPath: '/consulta/$id'
+      preLoaderRoute: typeof ConsultaIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/paciente/$id': {
+      id: '/paciente/$id'
+      path: '/paciente/$id'
+      fullPath: '/paciente/$id'
+      preLoaderRoute: typeof PacienteIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CadastroRoute: CadastroRoute,
   ConfiguracoesRoute: ConfiguracoesRoute,
   EnfermeiroRoute: EnfermeiroRoute,
+  ProfissionalRoute: ProfissionalRoute,
+  ConsultaIdRoute: ConsultaIdRoute,
+  PacienteIdRoute: PacienteIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
