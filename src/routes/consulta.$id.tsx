@@ -35,12 +35,15 @@ function ConsultaPage() {
 
   if (!consulta || !paciente || !modelo) return <AppShell><p className="py-20 text-center">Consulta não encontrada.</p></AppShell>;
 
+  const consultaAtual = consulta;
+  const pacienteAtual = paciente;
+
   const podeEditar = usuario?.role === "profissional" && consulta.profissionalId === usuario.id && consulta.status === "pendente";
 
   function finalizar(e: React.FormEvent) {
     e.preventDefault();
     const registro: Registro = {
-      profissional: usuario?.nome ?? consulta.profissionalNome,
+      profissional: usuario?.nome ?? consultaAtual.profissionalNome,
       data: new Date().toISOString().slice(0, 10),
       anamnese,
       avaliacaoEstruturada,
@@ -50,8 +53,8 @@ function ConsultaPage() {
       observacoes,
       anexos,
     };
-    registrarAtendimento(consulta.id, registro);
-    navigate({ to: "/paciente/$id", params: { id: paciente.id } });
+    registrarAtendimento(consultaAtual.id, registro);
+    navigate({ to: "/paciente/$id", params: { id: pacienteAtual.id } });
   }
 
   return (

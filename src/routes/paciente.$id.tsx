@@ -37,11 +37,13 @@ function PacientePage() {
     return <AppShell><p className="py-20 text-center">Paciente não encontrado.</p></AppShell>;
   }
 
+  const pacienteAtual = paciente;
+
   const consultaHoje = consultas.find((c) => c.status === "pendente" && c.profissionalId === usuario?.id && c.data === new Date().toISOString().slice(0, 10));
 
   function enviarEncaminhamento(e: React.FormEvent) {
     e.preventDefault();
-    const r = criarEncaminhamento({ pacienteId: paciente.id, especialidade, prioridade, motivo });
+    const r = criarEncaminhamento({ pacienteId: pacienteAtual.id, especialidade, prioridade, motivo });
     if (!r.ok) {
       setMensagem(r.erro ?? "Não foi possível encaminhar.");
       return;
