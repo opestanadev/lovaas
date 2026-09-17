@@ -4,10 +4,14 @@ import { useLovaas } from "@/lib/lovaas-store";
 import type { Role } from "@/lib/lovaas-data";
 import logoAsset from "@/assets/lovaas-logo.png.asset.json";
 
+const logoUrl = logoAsset.url.startsWith("http")
+  ? logoAsset.url
+  : `https://id-preview--1ff16d25-d1bd-4b75-9403-e5be17d2f045.lovable.app${logoAsset.url}`;
+
 export function Logo() {
   return (
     <img
-      src={logoAsset.url}
+      src={logoUrl}
       alt="Lovaas"
       className="h-14 w-auto object-contain"
     />
