@@ -2,18 +2,15 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useLovaas } from "@/lib/lovaas-store";
 import type { Role } from "@/lib/lovaas-data";
+import logoAsset from "@/assets/lovaas-logo.png.asset.json";
 
 export function Logo() {
   return (
-    <div className="flex items-center gap-2">
-      <span
-        aria-hidden
-        className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground/20 text-lg"
-      >
-        L
-      </span>
-      <span className="font-display text-xl italic tracking-tight text-primary-foreground">Lovaas</span>
-    </div>
+    <img
+      src={logoAsset.url}
+      alt="Lovaas"
+      className="h-10 w-auto object-contain"
+    />
   );
 }
 
