@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useLovaas } from "@/lib/lovaas-store";
+import { Logo } from "@/components/Layout";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -56,10 +57,7 @@ function Login() {
     <div className="flex min-h-screen flex-col bg-background">
       <div className="px-4 pt-4">
         <header className="mx-auto flex max-w-6xl items-center justify-between rounded-full bg-primary px-5 py-2.5">
-          <div className="flex items-center gap-2">
-            <span aria-hidden className="flex h-7 w-7 items-center justify-center rounded-full bg-primary-foreground/20 text-xs font-bold">L</span>
-            <span className="font-display text-xl italic text-primary-foreground">Lovaas</span>
-          </div>
+          <Logo />
           <span className="text-xs text-primary-foreground/85">Prefeitura de Crateús · Secretaria de Saúde</span>
         </header>
       </div>
